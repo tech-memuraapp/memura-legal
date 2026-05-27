@@ -80,25 +80,6 @@
       color: var(--text1);
       font-size: 0.95rem;
     }
-    .plan-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0 1.2rem;
-      font-size: 0.9rem;
-    }
-    .plan-table th {
-      background: var(--elevated);
-      color: var(--text1);
-      padding: 0.6rem 1rem;
-      text-align: left;
-      font-weight: 600;
-    }
-    .plan-table td {
-      border-bottom: 1px solid var(--elevated);
-      padding: 0.6rem 1rem;
-      color: var(--text2);
-    }
-    .plan-table tr:last-child td { border-bottom: none; }
     a { color: var(--primary); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .placeholder {
@@ -120,7 +101,7 @@
   </header>
 
   <div class="container">
-    <p class="updated">Ultimo aggiornamento: <span class="placeholder">[DATA ENTRATA IN VIGORE]</span></p>
+    <p class="updated">Ultimo aggiornamento: <span class="placeholder">27/05/2026</span></p>
 
     <div class="highlight">
       Leggendo questi termini, accetti le condizioni di utilizzo di Memura. Se hai domande,
@@ -130,12 +111,11 @@
     <h2>1. Accettazione dei Termini</h2>
     <p>
       Utilizzando l'applicazione Memura ("l'App"), accetti i presenti Termini di Servizio
-      e la nostra <a href="./privacy-policy.html">Privacy Policy</a>. Se non accetti questi termini,
+      e la <a href="./privacy-policy.html">Privacy Policy</a>. Se non accetti questi termini,
       non puoi utilizzare l'App.
     </p>
     <p>
-      L'App è sviluppata e gestita da <span class="placeholder">Matteo Palmieri</span>
-      ("noi", "il Fornitore").
+      L'App è sviluppata e gestita da <span class="placeholder">Matteo Palmieri</span> ("il Fornitore").
     </p>
 
     <h2>2. Descrizione del Servizio</h2>
@@ -144,71 +124,37 @@
       ricordi personali tramite intelligenza artificiale. Il servizio include:
     </p>
     <ul>
-      <li>Creazione e gestione di ricordi in formato testo e audio</li>
+      <li>Creazione e gestione di ricordi in formato testo (con input vocale opzionale, trascritto on-device; l'audio non viene mai conservato)</li>
       <li>Elaborazione AI per estrazione di entità, categorizzazione e ricerca semantica</li>
-      <li>Sincronizzazione cifrata tramite Google Drive personale dell'utente</li>
+      <li>Sincronizzazione cifrata nel cloud personale dell'utente: <strong>Google Drive</strong> per chi accede con Google, <strong>CloudKit Private Database</strong> (iCloud) per chi accede con Apple su iOS</li>
       <li>Interfaccia conversazionale per interrogare i propri ricordi</li>
-      <li>Import opzionale da Gmail e Google Calendar</li>
+      <li>Integrazioni opzionali con Google Calendar, Apple Calendar, Promemoria, Contatti e Foto del dispositivo</li>
     </ul>
 
     <h2>3. Requisiti di Accesso</h2>
     <p>Per utilizzare l'App è necessario:</p>
     <ul>
       <li>Avere almeno 13 anni di età (o la maggiore età richiesta nel proprio Paese)</li>
-      <li>Possedere un account Google attivo</li>
-      <li>Disporre di connessione internet per le funzioni AI e la sincronizzazione</li>
+      <li>Disporre di un metodo di autenticazione tra: <strong>account Google attivo</strong> (Google Sign-In, disponibile su iOS e Android) oppure <strong>Apple ID</strong> (Sign in with Apple, disponibile su iOS)</li>
+      <li>Disporre di connessione internet per le funzioni AI e la sincronizzazione cloud</li>
     </ul>
     <p>
-      L'accesso avviene tramite Google Sign-In. Sei responsabile della sicurezza del tuo account Google.
+      Sei responsabile della sicurezza dell'account utilizzato per l'autenticazione.
     </p>
 
-    <h2>4. Piani e Abbonamenti</h2>
-
-    <h3>4.1 Piano Free</h3>
+    <h2>4. Prezzo del Servizio</h2>
     <p>
-      Il piano gratuito include l'accesso alle funzioni base dell'App con i seguenti limiti:
-    </p>
-    <table class="plan-table">
-      <tr>
-        <th>Funzione</th>
-        <th>Limite</th>
-      </tr>
-      <tr>
-        <td>Ricordi creabili al mese</td>
-        <td><span class="placeholder">100</span></td>
-      </tr>
-      <tr>
-        <td>Query AI in chat al giorno</td>
-        <td><span class="placeholder">10</span></td>
-      </tr>
-      <tr>
-        <td>Modelli AI avanzati</td>
-        <td>Non incluso</td>
-      </tr>
-      <tr>
-        <td>Import Gmail / Calendar</td>
-        <td><span class="placeholder">[INCLUSO / NON INCLUSO]</span></td>
-      </tr>
-    </table>
-
-    <h3>4.2 Piano Premium</h3>
-    <p>
-      Il piano Premium offre accesso illimitato a tutte le funzionalità, inclusi modelli AI avanzati
-      per query complesse. I prezzi sono indicati nell'App Store e possono essere aggiornati nel tempo.
-    </p>
-
-    <h3>4.3 Fatturazione e Rimborsi</h3>
-    <p>
-      Gli abbonamenti Premium vengono fatturati tramite Apple App Store secondo i termini e le politiche
-      di rimborso di Apple. Non gestiamo direttamente pagamenti o rimborsi — per qualsiasi questione
-      relativa alla fatturazione ti invitiamo a contattare il supporto Apple.
+      Nella versione attuale, Memura è disponibile <strong>gratuitamente</strong> senza limiti
+      funzionali. Il Fornitore si riserva il diritto di introdurre in futuro piani a pagamento per
+      funzionalità avanzate, con preavviso e senza modificare retroattivamente i diritti acquisiti
+      sui contenuti esistenti.
     </p>
 
     <h2>5. Proprietà dei Dati e dei Contenuti</h2>
     <p>
       Sei e rimani il solo proprietario di tutti i ricordi e i contenuti che inserisci nell'App.
-      Non rivendichiamo alcun diritto sui tuoi dati personali. I tuoi ricordi sono conservati
-      cifrati nel tuo Google Drive e non sono mai accessibili al Fornitore.
+      Il Fornitore non rivendica alcun diritto sui tuoi dati personali. I tuoi ricordi sono conservati
+      cifrati nel tuo cloud personale (Google Drive o CloudKit) e non sono mai accessibili al Fornitore.
     </p>
     <p>
       Concedi al Fornitore una licenza limitata, non esclusiva e revocabile al solo scopo
@@ -221,18 +167,18 @@
       <li>Archiviare contenuti illegali, diffamatori, offensivi o che violano diritti di terzi</li>
       <li>Tentare di accedere, interferire o danneggiare l'infrastruttura del servizio</li>
       <li>Utilizzare l'App in modo da violare leggi o regolamenti applicabili</li>
-      <li>Creare account multipli per aggirare i limiti del piano gratuito</li>
+      <li>Creare account multipli al fine di abusare delle quote AI condivise</li>
     </ul>
 
     <h2>7. Disponibilità del Servizio</h2>
     <p>
       Le funzioni base dell'App (lettura e ricerca dei ricordi) sono disponibili anche offline.
-      Le funzioni che richiedono connessione internet (elaborazione AI, sincronizzazione Drive,
-      import Gmail/Calendar) dipendono dalla disponibilità dei servizi di terze parti (Google, Anthropic).
+      Le funzioni che richiedono connessione internet (elaborazione AI, sincronizzazione cloud)
+      dipendono dalla disponibilità dei servizi di terze parti (Google, Apple, Cloudflare).
     </p>
     <p>
-      Non garantiamo la disponibilità continuativa del servizio. Ci riserviamo il diritto di
-      modificare, sospendere o interrompere funzionalità con ragionevole preavviso.
+      Il Fornitore non garantisce la disponibilità continuativa del servizio. Il Fornitore si riserva
+      il diritto di modificare, sospendere o interrompere funzionalità con ragionevole preavviso.
     </p>
 
     <h2>8. Limitazione di Responsabilità</h2>
@@ -241,9 +187,9 @@
       il Fornitore non è responsabile per:
     </p>
     <ul>
-      <li>Perdita di dati conseguente a problemi con Google Drive, errori dell'utente o malfunzionamenti</li>
-      <li>Imprecisioni nei risultati generati dall'AI (titoli, sommari, entità estratte)</li>
-      <li>Interruzioni del servizio dipendenti da Google o Anthropic</li>
+      <li>Perdita di dati conseguente a problemi con Google Drive, CloudKit, errori dell'utente o malfunzionamenti del dispositivo</li>
+      <li>Imprecisioni nei risultati generati dall'AI (titoli, sommari, entità estratte, risposte alle query)</li>
+      <li>Interruzioni del servizio dipendenti da Google, Apple o Cloudflare</li>
       <li>Danni indiretti, perdita di profitti o danni consequenziali</li>
     </ul>
     <p>
@@ -258,20 +204,23 @@
 
     <h2>10. Modifiche ai Termini</h2>
     <p>
-      Ci riserviamo il diritto di aggiornare i presenti Termini. In caso di modifiche sostanziali,
-      ti avviseremo tramite un avviso nell'App con almeno 30 giorni di preavviso. Continuare a
+      Il Fornitore si riserva il diritto di aggiornare i presenti Termini. In caso di modifiche sostanziali,
+      avviserà tramite un avviso nell'App con almeno 30 giorni di preavviso. Continuare a
       utilizzare l'App dopo la notifica costituisce accettazione dei nuovi termini.
     </p>
 
     <h2>11. Risoluzione del Contratto</h2>
     <p>
       Puoi smettere di utilizzare l'App in qualsiasi momento. Per eliminare tutti i tuoi dati,
-      usa la funzione "Elimina tutti i dati" nel Profilo dell'App, che cancella i ricordi
-      dal tuo Google Drive. Puoi inoltre revocare l'accesso dell'App al tuo account Google
-      in qualsiasi momento da <a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a>.
+      usa la voce <em>Elimina account</em> nel Profilo dell'App, che cancella sia il database locale
+      sia il backup nel tuo cloud personale (Google Drive o CloudKit). Puoi inoltre:
     </p>
+    <ul>
+      <li>revocare l'accesso dell'App al tuo account Google da <a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a></li>
+      <li>revocare l'accesso a Sign in with Apple da <em>Impostazioni iOS → Apple ID → Accedi con Apple → Memura → Smetti di utilizzare Apple ID</em></li>
+    </ul>
     <p>
-      Ci riserviamo il diritto di sospendere o terminare l'accesso al servizio in caso di
+      Il Fornitore si riserva il diritto di sospendere o terminare l'accesso al servizio in caso di
       grave violazione dei presenti Termini.
     </p>
 
@@ -285,7 +234,6 @@
     <h2>13. Contatti</h2>
     <p>
       Per domande, segnalazioni o richieste relative ai presenti Termini:<br />
-      <span class="placeholder">Matteo Palmieri</span><br />
       <a href="mailto:legal@memuraapp.it" class="placeholder">legal@memuraapp.it</a>
     </p>
   </div>
