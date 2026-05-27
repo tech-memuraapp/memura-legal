@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — SecondBrain</title>
+  <title>Privacy Policy — Memura</title>
   <style>
     :root {
       --bg: #08071A;
@@ -95,7 +95,7 @@
 </head>
 <body>
   <header>
-    <div class="app-name">SecondBrain</div>
+    <div class="app-name">Memura</div>
     <h1>Privacy Policy</h1>
   </header>
 
@@ -113,7 +113,7 @@
     </p>
     <p>
       Per qualsiasi domanda relativa alla privacy puoi contattarci all'indirizzo:
-      <a href="mailto:secondbrainprivacy@gmail.com" class="placeholder">secondbrainprivacy@gmail.com</a>
+      <a href="mailto:legal@memuraapp.it" class="placeholder">legal@memuraapp.it</a>
     </p>
 
     <h2>2. Dati Raccolti</h2>
@@ -144,7 +144,7 @@
     </ul>
     <p>
       In aggiunta, per rispettare il requisito Apple di revoca account, il nostro backend (Cloudflare Worker)
-      riceve da Apple notifiche server-to-server quando l'utente revoca il consenso a SecondBrain dalle
+      riceve da Apple notifiche server-to-server quando l'utente revoca il consenso a Memura dalle
       impostazioni Apple ID o cancella l'Apple ID stesso. Tali notifiche contengono esclusivamente il tuo
       identificativo Apple anonimo e un timestamp, non contenuti. Al primo avvio successivo l'app rileva
       la revoca, cancella tutti i dati locali e ti riporta alla schermata di login.
@@ -152,7 +152,7 @@
 
     <p>
       <strong>Nessuno dei dati di autenticazione, qualunque sia il provider, viene conservato su server
-      SecondBrain.</strong> I claim (<code>sub</code>, email, nome) restano sul tuo dispositivo per
+      Memura.</strong> I claim (<code>sub</code>, email, nome) restano sul tuo dispositivo per
       derivare la chiave di cifratura e identificare il tuo container cloud; i token sono in memoria o
       in Keychain, mai inviati a backend gestiti da noi (il Worker Cloudflare verifica la firma dei token
       in modo stateless, senza salvarli).
@@ -168,10 +168,10 @@
       <li>Vengono archiviati <strong>esclusivamente nel tuo cloud personale</strong>:
         <ul>
           <li>se accedi con Google, nella cartella riservata all'app del tuo <strong>Google Drive</strong> (<em>Application Data Folder</em>, non visibile nell'interfaccia normale di Drive)</li>
-          <li>se accedi con Apple, nel tuo <strong>CloudKit Private Database</strong> (container <code>iCloud.com.matteopalmieri.secondbrain</code>), accessibile solo tramite il tuo Apple ID</li>
+          <li>se accedi con Apple, nel tuo <strong>CloudKit Private Database</strong> (container <code>iCloud.com.memuraapp.memura</code>), accessibile solo tramite il tuo Apple ID</li>
         </ul>
       </li>
-      <li>Non vengono mai trasmessi, salvati o duplicati su server di SecondBrain</li>
+      <li>Non vengono mai trasmessi, salvati o duplicati su server di Memura</li>
       <li>Sono accessibili solo a te, tramite la master key derivata dal tuo identificativo provider e wrappata per device in forma cifrata</li>
       <li>Anche il database locale dell'app è cifrato con <strong>SQLCipher</strong>; la passphrase è specifica per utente, conservata in Keychain iOS/Android Keystore</li>
     </ul>
@@ -193,7 +193,7 @@
       contenuti</strong> dei ricordi o delle query.
     </p>
     <p>
-      Per quanto riguarda le chiavi API AI, SecondBrain adotta un modello ibrido <em>Bring Your Own Key</em>:
+      Per quanto riguarda le chiavi API AI, Memura adotta un modello ibrido <em>Bring Your Own Key</em>:
     </p>
     <ul>
       <li>Puoi inserire una tua chiave personale Google Gemini, che viene conservata <strong>solo in Keychain sul tuo dispositivo</strong>. In quel caso il Worker agisce unicamente da proxy di firma e la chiamata AI è fatturata alla tua quota Google</li>
@@ -208,7 +208,7 @@
 
     <h3>2.4 Integrazioni opzionali (accesso on-demand)</h3>
     <p>
-      SecondBrain può accedere ad alcune sorgenti esterne sul tuo dispositivo per arricchire le risposte
+      Memura può accedere ad alcune sorgenti esterne sul tuo dispositivo per arricchire le risposte
       dell'AI. <strong>Tutte queste integrazioni sono opzionali</strong>, richiedono il tuo consenso esplicito
       tramite il prompt nativo del sistema operativo e possono essere revocate in qualsiasi momento dalle
       impostazioni dell'app o del dispositivo.
@@ -235,8 +235,8 @@
       Apple e ai tuoi Promemoria tramite il framework di sistema <strong>EventKit</strong>. Il framework
       viene inizializzato solo dopo un tuo consenso esplicito tramite il prompt iOS. I dati letti
       <strong>restano sul dispositivo</strong>: non transitano via Worker, non raggiungono server
-      SecondBrain, e sono passati ai modelli AI solo se pertinenti alla tua richiesta corrente. Puoi
-      revocare in qualsiasi momento da <em>Impostazioni → Privacy e sicurezza → Calendari / Promemoria → SecondBrain</em>.
+      Memura, e sono passati ai modelli AI solo se pertinenti alla tua richiesta corrente. Puoi
+      revocare in qualsiasi momento da <em>Impostazioni → Privacy e sicurezza → Calendari / Promemoria → Memura</em>.
     </p>
 
     <h4 style="color: var(--text1); font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem;">2.4.c Contatti</h4>
@@ -245,7 +245,7 @@
       le persone menzionate nei tuoi ricordi (es. distinguere "Marco" collega da "Marco" fratello). Viene
       letto <strong>solo il minimo necessario</strong> (nome e cognome); numeri di telefono, email e altri
       campi non vengono mai raccolti. I contatti non vengono duplicati in un nostro archivio. Puoi revocare
-      da <em>Impostazioni → Privacy e sicurezza → Contatti → SecondBrain</em> (iOS) o dalle impostazioni
+      da <em>Impostazioni → Privacy e sicurezza → Contatti → Memura</em> (iOS) o dalle impostazioni
       applicazioni (Android).
     </p>
 
@@ -255,8 +255,8 @@
       nelle immagini (es. scritte su cartelli, volti degli interlocutori, date di biglietti) per arricchire
       il contesto di un ricordo. L'analisi è effettuata <strong>interamente sul tuo dispositivo</strong>
       tramite i framework Apple <strong>Vision</strong> e <strong>Core ML</strong>: nessuna immagine viene
-      inviata a server SecondBrain, al Worker Cloudflare o ai provider AI. Puoi revocare da
-      <em>Impostazioni → Privacy e sicurezza → Foto → SecondBrain</em>.
+      inviata a server Memura, al Worker Cloudflare o ai provider AI. Puoi revocare da
+      <em>Impostazioni → Privacy e sicurezza → Foto → Memura</em>.
     </p>
 
     <h4 style="color: var(--text1); font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem;">2.4.e Microfono (dettatura vocale)</h4>
@@ -338,14 +338,14 @@
       <li><strong>Revoca del consenso:</strong> revocare in qualsiasi momento i permessi granulari:
         <ul>
           <li>scope OAuth Google (Calendar): <a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a></li>
-          <li>Sign in with Apple: <em>Impostazioni iOS → Apple ID → Accedi con Apple → SecondBrain → Smetti di utilizzare Apple ID</em>; in alternativa <a href="https://appleid.apple.com" target="_blank">appleid.apple.com</a> → <em>Sign in with Apple</em></li>
-          <li>permessi di sistema (Calendario Apple, Promemoria, Contatti, Foto, Microfono): <em>Impostazioni → Privacy e sicurezza → [categoria] → SecondBrain</em></li>
+          <li>Sign in with Apple: <em>Impostazioni iOS → Apple ID → Accedi con Apple → Memura → Smetti di utilizzare Apple ID</em>; in alternativa <a href="https://appleid.apple.com" target="_blank">appleid.apple.com</a> → <em>Sign in with Apple</em></li>
+          <li>permessi di sistema (Calendario Apple, Promemoria, Contatti, Foto, Microfono): <em>Impostazioni → Privacy e sicurezza → [categoria] → Memura</em></li>
         </ul>
       </li>
     </ul>
     <p>
       Per esercitare i tuoi diritti scrivi a
-      <a href="mailto:secondbrainprivacy@gmail.com" class="placeholder">secondbrainprivacy@gmail.com</a>.
+      <a href="mailto:legal@memuraapp.it" class="placeholder">legal@memuraapp.it</a>.
       Hai inoltre il diritto di proporre reclamo all'autorità di controllo del tuo Paese
       (in Italia: <a href="https://www.garanteprivacy.it" target="_blank">Garante per la protezione dei dati personali</a>).
     </p>
@@ -366,7 +366,7 @@
     </p>
     <p>
       <strong>Nessun dato utente — né in chiaro né cifrato — transita o risiede su server gestiti da
-      SecondBrain.</strong> Il solo componente server-side sotto il nostro controllo è il proxy Cloudflare
+      Memura.</strong> Il solo componente server-side sotto il nostro controllo è il proxy Cloudflare
       Worker, che verifica le firme dei token e inoltra le richieste AI in modo stateless, senza logging
       di contenuti.
     </p>
@@ -386,12 +386,12 @@
     <h2>10. Contatti</h2>
     <p>
       <span class="placeholder">Matteo Palmieri</span><br />
-      <a href="mailto:secondbrainprivacy@gmail.com" class="placeholder">secondbrainprivacy@gmail.com</a>
+      <a href="mailto:legal@memuraapp.it" class="placeholder">legal@memuraapp.it</a>
     </p>
   </div>
 
   <footer>
-    &copy; <span class="placeholder">2026</span> SecondBrain. Tutti i diritti riservati.
+    &copy; <span class="placeholder">2026</span> Memura. Tutti i diritti riservati.
   </footer>
 </body>
 </html>
