@@ -100,7 +100,7 @@
   </header>
 
   <div class="container">
-    <p class="updated">Ultimo aggiornamento: <span class="placeholder">24/04/2026</span></p>
+    <p class="updated">Ultimo aggiornamento: <span class="placeholder">27/05/2026</span></p>
 
     <div class="highlight">
       La versione breve: i tuoi ricordi vengono cifrati sul tuo dispositivo e salvati nel tuo cloud personale — Google Drive se accedi con Google, iCloud (CloudKit Private Database) se accedi con Apple. Noi non li vediamo mai. L'unica elaborazione esterna avviene tramite API AI, inoltrate da un proxy (Cloudflare Worker) che non conserva i contenuti, nel momento in cui crei un ricordo.
@@ -109,10 +109,10 @@
     <h2>1. Titolare del Trattamento</h2>
     <p>
       Il titolare del trattamento dei dati personali è <span class="placeholder">Matteo Palmieri</span>,
-      con sede in <span class="placeholder">Mondragone(CE)</span>.
+      con sede in <span class="placeholder">Mondragone (CE)</span> ("il Titolare").
     </p>
     <p>
-      Per qualsiasi domanda relativa alla privacy puoi contattarci all'indirizzo:
+      Per qualsiasi domanda relativa alla privacy puoi contattare il Titolare all'indirizzo:
       <a href="mailto:legal@memuraapp.it" class="placeholder">legal@memuraapp.it</a>
     </p>
 
@@ -126,7 +126,7 @@
     </p>
 
     <h4 style="color: var(--text1); font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem;">2.1.a Google Sign-In</h4>
-    <p>Se accedi con Google, riceviamo da Google i seguenti dati:</p>
+    <p>Se accedi con Google, il Titolare riceve da Google i seguenti dati:</p>
     <ul>
       <li>Identificativo univoco Google (claim <code>sub</code>)</li>
       <li>Indirizzo email</li>
@@ -135,7 +135,7 @@
     </ul>
 
     <h4 style="color: var(--text1); font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem;">2.1.b Sign in with Apple</h4>
-    <p>Se accedi con Apple, riceviamo da Apple i seguenti dati:</p>
+    <p>Se accedi con Apple, il Titolare riceve da Apple i seguenti dati:</p>
     <ul>
       <li>Identificativo univoco Apple (claim <code>sub</code>, stabile e specifico per l'app)</li>
       <li>Indirizzo email — reale se decidi di condividerlo, altrimenti un alias <em>private relay</em> nella forma <code>xxxx@privaterelay.appleid.com</code> generato da Apple che inoltra la posta al tuo indirizzo reale senza rivelarlo</li>
@@ -143,7 +143,7 @@
       <li>ID token Apple di breve durata; Sign in with Apple non emette refresh token, quindi una volta scaduto il device verifica la sessione tramite il metodo <code>getCredentialState</code> del sistema operativo</li>
     </ul>
     <p>
-      In aggiunta, per rispettare il requisito Apple di revoca account, il nostro backend (Cloudflare Worker)
+      In aggiunta, per rispettare il requisito Apple di revoca account, il backend (Cloudflare Worker)
       riceve da Apple notifiche server-to-server quando l'utente revoca il consenso a Memura dalle
       impostazioni Apple ID o cancella l'Apple ID stesso. Tali notifiche contengono esclusivamente il tuo
       identificativo Apple anonimo e un timestamp, non contenuti. Al primo avvio successivo l'app rileva
@@ -154,7 +154,7 @@
       <strong>Nessuno dei dati di autenticazione, qualunque sia il provider, viene conservato su server
       Memura.</strong> I claim (<code>sub</code>, email, nome) restano sul tuo dispositivo per
       derivare la chiave di cifratura e identificare il tuo container cloud; i token sono in memoria o
-      in Keychain, mai inviati a backend gestiti da noi (il Worker Cloudflare verifica la firma dei token
+      in Keychain, mai inviati a backend gestiti dal Titolare (il Worker Cloudflare verifica la firma dei token
       in modo stateless, senza salvarli).
     </p>
 
@@ -176,17 +176,16 @@
       <li>Anche il database locale dell'app è cifrato con <strong>SQLCipher</strong>; la passphrase è specifica per utente, conservata in Keychain iOS/Android Keystore</li>
     </ul>
 
-    <h3>2.3 Dati trasmessi ai servizi AI</h3>
+    <h3>2.3 Dati trasmessi al servizio AI</h3>
     <p>
       Quando crei un ricordo o poni una domanda dentro l'app, il testo viene temporaneamente trasmesso
-      — in forma non cifrata — ai seguenti servizi AI per l'elaborazione:
+      — in forma non cifrata — al servizio AI per l'elaborazione:
     </p>
     <ul>
       <li><strong>Google Gemini API</strong> (Google LLC): per estrarre entità, generare titolo, sommario, categorie, calcolare l'<em>embedding</em> vettoriale del testo e rispondere alle interrogazioni</li>
-      <li><strong>Anthropic Claude API</strong> (Anthropic PBC): in selezionati casi d'uso avanzati, per rispondere a domande complesse</li>
     </ul>
     <p>
-      Le richieste <strong>non colpiscono direttamente</strong> le API AI dal tuo dispositivo: vengono
+      Le richieste <strong>non colpiscono direttamente</strong> l'API AI dal tuo dispositivo: vengono
       instradate attraverso un proxy stateless implementato come <strong>Cloudflare Worker</strong>
       (<em>edge compute</em>), che si limita a inoltrare la richiesta al provider AI e ad autenticarla tramite
       la verifica della firma del tuo token (Google o Apple). <strong>Il Worker non persiste né logga
@@ -200,10 +199,9 @@
       <li>Se non configuri una chiave personale, oppure se la tua quota è esaurita, viene usata come fallback una chiave del servizio condivisa dall'app, con eventuali limiti di utilizzo</li>
     </ul>
     <p>
-      I fornitori AI non conservano le richieste oltre i limiti previsti dai propri termini di servizio.
-      Ti invitiamo a leggere le informative di <a href="https://policies.google.com/privacy" target="_blank">Google</a>,
-      <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic</a> e
-      <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Cloudflare</a>.
+      Il fornitore AI non conserva le richieste oltre i limiti previsti dai propri termini di servizio.
+      Ti invitiamo a leggere le informative di <a href="https://policies.google.com/privacy" target="_blank">Google</a>
+      e <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Cloudflare</a>.
     </p>
 
     <h3>2.4 Integrazioni opzionali (accesso on-demand)</h3>
@@ -215,7 +213,7 @@
     </p>
     <p>
       Vale per tutte un principio unico: l'accesso è <strong>sempre on-demand</strong>. I contenuti letti
-      <strong>non vengono mai salvati</strong> nei nostri database né nel tuo cloud personale: restano sorgente
+      <strong>non vengono mai salvati</strong> nei database del Titolare né nel tuo cloud personale: restano sorgente
       e vengono utilizzati solo nel momento in cui servono per formulare una risposta, poi scartati dalla
       memoria.
     </p>
@@ -235,7 +233,7 @@
       Apple e ai tuoi Promemoria tramite il framework di sistema <strong>EventKit</strong>. Il framework
       viene inizializzato solo dopo un tuo consenso esplicito tramite il prompt iOS. I dati letti
       <strong>restano sul dispositivo</strong>: non transitano via Worker, non raggiungono server
-      Memura, e sono passati ai modelli AI solo se pertinenti alla tua richiesta corrente. Puoi
+      Memura, e sono passati al modello AI solo se pertinenti alla tua richiesta corrente. Puoi
       revocare in qualsiasi momento da <em>Impostazioni → Privacy e sicurezza → Calendari / Promemoria → Memura</em>.
     </p>
 
@@ -244,7 +242,7 @@
       Se autorizzi l'accesso ai Contatti del sistema operativo, l'app utilizza i nomi per <em>disambiguare</em>
       le persone menzionate nei tuoi ricordi (es. distinguere "Marco" collega da "Marco" fratello). Viene
       letto <strong>solo il minimo necessario</strong> (nome e cognome); numeri di telefono, email e altri
-      campi non vengono mai raccolti. I contatti non vengono duplicati in un nostro archivio. Puoi revocare
+      campi non vengono mai raccolti. I contatti non vengono duplicati in un archivio del Titolare. Puoi revocare
       da <em>Impostazioni → Privacy e sicurezza → Contatti → Memura</em> (iOS) o dalle impostazioni
       applicazioni (Android).
     </p>
@@ -255,20 +253,23 @@
       nelle immagini (es. scritte su cartelli, volti degli interlocutori, date di biglietti) per arricchire
       il contesto di un ricordo. L'analisi è effettuata <strong>interamente sul tuo dispositivo</strong>
       tramite i framework Apple <strong>Vision</strong> e <strong>Core ML</strong>: nessuna immagine viene
-      inviata a server Memura, al Worker Cloudflare o ai provider AI. Puoi revocare da
+      inviata a server Memura, al Worker Cloudflare o al provider AI. Puoi revocare da
       <em>Impostazioni → Privacy e sicurezza → Foto → Memura</em>.
     </p>
 
     <h4 style="color: var(--text1); font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem;">2.4.e Microfono (dettatura vocale)</h4>
     <p>
-      Se utilizzi l'input vocale, l'audio è trascritto da un modello <em>Whisper</em> eseguito <strong>interamente
-      sul tuo dispositivo</strong>. L'audio non viene salvato, né inviato a server esterni. Puoi revocare
+      Se utilizzi l'input vocale, l'audio è trascritto da un modello di riconoscimento vocale eseguito
+      <strong>interamente sul tuo dispositivo</strong>. L'audio non viene mai salvato, né inviato a server
+      esterni: solo il testo trascritto viene conservato come contenuto del ricordo. Puoi revocare
       l'accesso al microfono dalle impostazioni del sistema operativo.
     </p>
 
     <h3>2.5 Dati di diagnostica e analytics</h3>
     <p>
-      Per migliorare la stabilità e la qualità dell'app utilizziamo i servizi Firebase di Google LLC:
+      Per migliorare la stabilità e la qualità dell'app il Titolare utilizza i servizi Firebase di Google LLC.
+      <strong>L'attivazione di ciascun servizio richiede il tuo consenso esplicito</strong> (toggle nelle
+      impostazioni dell'app, default disattivato). Senza consenso, nessun dato di diagnostica viene raccolto.
     </p>
     <ul>
       <li>
@@ -293,8 +294,7 @@
     <h2>3. Finalità e Basi Giuridiche del Trattamento</h2>
     <ul>
       <li><strong>Esecuzione del contratto (Art. 6(1)(b) GDPR):</strong> autenticazione (Google o Apple), cifratura dei contenuti, sincronizzazione con il tuo cloud personale (Drive o iCloud) — necessari per fornire il servizio</li>
-      <li><strong>Interesse legittimo (Art. 6(1)(f) GDPR):</strong> diagnostica crash (Firebase Crashlytics) e analytics aggregati/pseudonimi (Firebase Analytics) per migliorare la qualità dell'app</li>
-      <li><strong>Consenso (Art. 6(1)(a) GDPR):</strong> ciascuna integrazione opzionale descritta in §2.4 (Google Calendar, Apple Calendar ed EventKit Promemoria, Contatti, Foto, Microfono). Il consenso è granulare per ciascuna sorgente ed è revocabile in qualsiasi momento dalle impostazioni del dispositivo o dell'app</li>
+      <li><strong>Consenso (Art. 6(1)(a) GDPR):</strong> ciascuna integrazione opzionale descritta in §2.4 (Google Calendar, Apple Calendar ed EventKit Promemoria, Contatti, Foto, Microfono) e ciascun servizio di diagnostica descritto in §2.5 (Firebase Analytics, Firebase Crashlytics). Il consenso è granulare per ciascuna sorgente ed è revocabile in qualsiasi momento dalle impostazioni del dispositivo o dell'app</li>
       <li><strong>Obbligo legale (Art. 6(1)(c) GDPR):</strong> trattamento delle notifiche di revoca Sign in with Apple per conformità al requisito Apple di cancellazione account</li>
     </ul>
 
@@ -303,19 +303,20 @@
       I ricordi rimangono nel tuo cloud personale (Google Drive o CloudKit iCloud) finché non li elimini tu.
     </p>
     <ul>
-      <li>Se <strong>revochi l'accesso dell'app</strong> al tuo account Google o al tuo Apple ID, i dati rimangono nel tuo cloud finché non li elimini manualmente dallo storage Drive / iCloud. Anche dall'interno dell'app puoi avviare la cancellazione completa tramite la voce <em>Elimina dati</em> in Profilo, che cancella sia il device sia il cloud</li>
-      <li>Se <strong>cancelli il tuo Apple ID</strong> oppure revochi il consenso a Sign in with Apple, Apple ci notifica automaticamente: al primo bootstrap successivo l'app cancella tutti i dati locali. I dati nel tuo container CloudKit sono gestiti e cancellati da Apple secondo i termini del tuo Apple ID</li>
+      <li>Se <strong>revochi l'accesso dell'app</strong> al tuo account Google o al tuo Apple ID, i dati rimangono nel tuo cloud finché non li elimini manualmente dallo storage Drive / iCloud. Dall'interno dell'app puoi avviare la cancellazione completa tramite la voce <em>Elimina account</em> in Profilo, che cancella sia il device sia il cloud</li>
+      <li>Se <strong>cancelli il tuo Apple ID</strong> oppure revochi il consenso a Sign in with Apple, Apple notifica automaticamente il backend: al primo bootstrap successivo l'app cancella tutti i dati locali. I dati nel tuo container CloudKit sono gestiti e cancellati da Apple secondo i termini del tuo Apple ID</li>
       <li>I dati di autenticazione (sub, email, nome) restano solo sul device e vengono distrutti alla disconnessione o al wipe</li>
     </ul>
     <p>
-      I dati di diagnostica e analytics (Firebase Analytics e Crashlytics) vengono conservati da Google
-      secondo la retention di default del servizio — tipicamente fino a 14 mesi per gli eventi
-      analytics e fino a 90 giorni per i crash report — in forma aggregata o pseudonima.
+      I dati di diagnostica e analytics (Firebase Analytics e Crashlytics, se attivati dall'utente)
+      vengono conservati da Google secondo la retention di default del servizio — tipicamente fino a
+      14 mesi per gli eventi analytics e fino a 90 giorni per i crash report — in forma aggregata o
+      pseudonima.
     </p>
 
     <h2>5. Trasferimento Internazionale dei Dati</h2>
     <p>
-      Le API AI (Google Gemini, Anthropic Claude) e il proxy Cloudflare Worker possono elaborare dati in
+      L'API AI (Google Gemini) e il proxy Cloudflare Worker possono elaborare dati in
       transito su server negli Stati Uniti e in Europa. Firebase Analytics e Crashlytics elaborano dati
       su infrastruttura Google distribuita globalmente. Questi trasferimenti avvengono nel rispetto delle
       garanzie previste dal GDPR (Clausole Contrattuali Standard o decisioni di adeguatezza Stati
@@ -324,22 +325,23 @@
     <p>
       I dati salvati in <strong>CloudKit</strong> restano nell'infrastruttura iCloud del tuo Apple ID,
       gestita da Apple Inc. secondo la <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple Privacy Policy</a>,
-      e non vengono da noi replicati altrove.
+      e non vengono replicati altrove dal Titolare.
     </p>
 
     <h2>6. I Tuoi Diritti (GDPR)</h2>
     <p>In qualità di interessato hai il diritto di:</p>
     <ul>
-      <li><strong>Accesso:</strong> sapere quali dati trattiamo</li>
+      <li><strong>Accesso:</strong> sapere quali dati vengono trattati</li>
       <li><strong>Rettifica:</strong> correggere dati inesatti</li>
       <li><strong>Cancellazione:</strong> richiedere la cancellazione dei tuoi dati ("diritto all'oblio")</li>
-      <li><strong>Portabilità:</strong> ricevere i tuoi dati in formato strutturato</li>
+      <li><strong>Portabilità:</strong> ricevere i tuoi dati in formato strutturato (l'app espone una funzione di <em>export JSON</em> dalle impostazioni di Profilo)</li>
       <li><strong>Opposizione:</strong> opporti al trattamento per interesse legittimo</li>
       <li><strong>Revoca del consenso:</strong> revocare in qualsiasi momento i permessi granulari:
         <ul>
           <li>scope OAuth Google (Calendar): <a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a></li>
           <li>Sign in with Apple: <em>Impostazioni iOS → Apple ID → Accedi con Apple → Memura → Smetti di utilizzare Apple ID</em>; in alternativa <a href="https://appleid.apple.com" target="_blank">appleid.apple.com</a> → <em>Sign in with Apple</em></li>
           <li>permessi di sistema (Calendario Apple, Promemoria, Contatti, Foto, Microfono): <em>Impostazioni → Privacy e sicurezza → [categoria] → Memura</em></li>
+          <li>diagnostica (Analytics, Crashlytics): <em>Memura → Profilo → Dati e privacy</em></li>
         </ul>
       </li>
     </ul>
@@ -360,21 +362,21 @@
     </p>
     <p>
       Il contenuto depositato in <strong>CloudKit Private Database</strong> è accessibile esclusivamente al
-      tuo Apple ID e, per quanto ci riguarda, è sempre cifrato prima dell'upload: anche Apple, pur ospitando
+      tuo Apple ID e, dal lato del Titolare, è sempre cifrato prima dell'upload: anche Apple, pur ospitando
       il blob, non può leggere i contenuti. Lo stesso vale per i dati in <strong>Google Drive Application
       Data Folder</strong>.
     </p>
     <p>
-      <strong>Nessun dato utente — né in chiaro né cifrato — transita o risiede su server gestiti da
-      Memura.</strong> Il solo componente server-side sotto il nostro controllo è il proxy Cloudflare
-      Worker, che verifica le firme dei token e inoltra le richieste AI in modo stateless, senza logging
-      di contenuti.
+      <strong>Nessun dato utente — né in chiaro né cifrato — transita o risiede su server gestiti
+      direttamente dal Titolare.</strong> Il solo componente server-side sotto il controllo del Titolare
+      è il proxy Cloudflare Worker, che verifica le firme dei token e inoltra le richieste AI in modo
+      stateless, senza logging di contenuti.
     </p>
 
     <h2>8. Minori</h2>
     <p>
-      L'app non è destinata a persone di età inferiore ai 13 anni. Non raccogliamo consapevolmente
-      dati di minori. Se ritieni che un minore abbia utilizzato l'app, contattaci per la cancellazione dei dati.
+      L'app non è destinata a persone di età inferiore ai 13 anni. Il Titolare non raccoglie consapevolmente
+      dati di minori. Se ritieni che un minore abbia utilizzato l'app, contatta il Titolare per la cancellazione dei dati.
     </p>
 
     <h2>9. Modifiche alla Privacy Policy</h2>
@@ -385,7 +387,6 @@
 
     <h2>10. Contatti</h2>
     <p>
-      <span class="placeholder">Matteo Palmieri</span><br />
       <a href="mailto:legal@memuraapp.it" class="placeholder">legal@memuraapp.it</a>
     </p>
   </div>
