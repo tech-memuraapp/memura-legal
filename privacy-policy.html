@@ -85,6 +85,18 @@
       color: var(--primary);
       font-weight: 600;
     }
+    .lang-switch {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+    }
+    .lang-switch a {
+      color: var(--text3);
+      text-decoration: none;
+      padding: 0 0.45rem;
+    }
+    .lang-switch a.active { color: var(--primary); font-weight: 600; }
+    .lang-switch a:hover { color: var(--text1); }
+    .lang-switch span { color: var(--text3); }
     footer {
       margin-top: 4rem;
       text-align: center;
@@ -97,6 +109,11 @@
   <header>
     <div class="app-name">Memura</div>
     <h1>Privacy Policy</h1>
+    <div class="lang-switch">
+      <a href="privacy-policy.html" class="active">IT</a>
+      <span>·</span>
+      <a href="privacy-policy-en.html">EN</a>
+    </div>
   </header>
 
   <div class="container">
